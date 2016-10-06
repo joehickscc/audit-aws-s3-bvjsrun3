@@ -1,0 +1,47 @@
+variables:
+    AUDIT_AWS_S3_ALERT_RECIPIENT:
+        description: Enter email address that will receive notifications.
+        required: true
+        type: string
+        default: null
+    AUDIT_AWS_S3_ALERT_LIST:
+        description: alert list for generating notifications
+        required: true
+        type: array
+        default:
+            - s3-allusers-write
+            - s3-allusers-write-acp
+            - s3-allusers-read
+            - s3-authenticatedusers-write
+            - s3-authenticatedusers-write-acp
+            - s3-authenticatedusers-read
+            - s3-logging-disabled
+            - s3-world-open-policy-delete
+            - s3-world-open-policy-get
+            - s3-world-open-policy-list
+            - s3-world-open-policy-put
+            - s3-world-open-policy-all
+            - s3-only-ip-based-policy
+    AUDIT_AWS_S3_REGIONS:
+        description: "List of AWS regions to check. Default is us-east-1,us-west-1,us-west-2."
+        required: true
+        type: array
+        default:
+            - us-east-1
+            - us-west-1
+            - us-west-2
+    AUDIT_AWS_S3_ALLOW_EMPTY:
+        description: Would you like to receive empty reports (true / false)?
+        required: true
+        type: string
+        default: false
+    AUDIT_AWS_S3_SEND_ON:
+        description: Send reports always or only when there is a change (always / change)?
+        required: true
+        type: string
+        default: change
+    AUDIT_AWS_S3_PAYLOAD_TYPE:
+        description: json or text
+        required: true
+        type: string
+        default: json
